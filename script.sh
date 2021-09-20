@@ -1,0 +1,22 @@
+apt update -y && apt upgrade -y
+apt install apache2 mysql-server libapache2-mod-php php-mysql 
+
+mysql_secure_installation 
+
+mysql -u root -p 
+
+CREATE DATABASE gsb_frais;
+CREATE USER 'gsb'@'localhost' IDENTIFIED BY 'gsbpass';
+GRANT ALL PRIVILEGES ON gsb_frais.* TO 'gsb'@'localhost';
+flush privileges;
+exit;
+
+mysql -u root -p gsb_frais < /home/ewen/gsb_frais_structure.sql
+mysql -u root -p gsb_frais < /home/ewen/gsb_frais_insert_tables_statiques.sql
+
+cp /home/ewen/gsb /var/www
+cp /home/ewen/gsb_frais.conf /etc/apache2/sites-available/
+
+
+a2ensite gsb_frais.conf
+a2dissite 000-default
