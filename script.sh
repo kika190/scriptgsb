@@ -16,8 +16,8 @@ flush privileges;
 exit;
 
 
-mysql -u root -p gsb_frais < /root/gsb_frais_structure.sql
-mysql -u root -p gsb_frais < /root/gsb_frais_insert_tables_statiques.sql
+mysql -u root gsb_frais < /root/gsb_frais_structure.sql
+mysql -u root gsb_frais < /root/gsb_frais_insert_tables_statiques.sql
 
 
 cp /root/gsb /var/www
