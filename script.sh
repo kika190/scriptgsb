@@ -26,3 +26,5 @@ cp /root/gsb_frais.conf /etc/apache2/sites-available/
 
 a2ensite gsb_frais.conf
 a2dissite 000-default
+
+systemctl restart apache2
