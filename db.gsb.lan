@@ -1,0 +1,17 @@
+
+;
+;
+$TTL    604800
+@       IN      SOA     ns.gsb.lan. root.gsb.lan. (
+                              6         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@       IN      NS      ns.gsb.lan.
+ns      IN      A       172.24.2.241
+www     IN      CNAME   ns
+www.gestionfrais3      IN      A       172.24.2.240
+
+
