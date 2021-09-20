@@ -7,7 +7,7 @@ wget https://github.com/kika190/scriptgsb/raw/main/gsb.tar.gz
 tar -xzvf gsb.tar.gz
 
 
-mysql -u root -p 
+mysql -u root 
 
 CREATE DATABASE gsb_frais;
 CREATE USER 'gsb'@'localhost' IDENTIFIED BY 'gsbpass';
