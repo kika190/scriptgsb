@@ -4,7 +4,7 @@ wget https://raw.githubusercontent.com/kika190/scriptgsb/main/gsb_frais_insert_t
 wget https://raw.githubusercontent.com/kika190/scriptgsb/main/gsb_frais_structure.sql
 wget https://raw.githubusercontent.com/kika190/scriptgsb/main/gsb_frais.conf
 wget https://github.com/kika190/scriptgsb/raw/main/gsb.tar.gz
-tar -xzvf gsb.tar.gz
+tar -xzvf gsb.tar.gz /root
 
 
 mysql -u root 
@@ -20,7 +20,7 @@ mysql -u root gsb_frais < /root/gsb_frais_structure.sql
 mysql -u root gsb_frais < /root/gsb_frais_insert_tables_statiques.sql
 
 
-cp /root/gsb /var/www
+cp -r /root/gsb /var/www
 cp /root/gsb_frais.conf /etc/apache2/sites-available/
 
 
