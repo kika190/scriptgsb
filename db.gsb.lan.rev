@@ -7,6 +7,5 @@ $TTL    604800
                          604800 )       ; Negative Cache TTL
 ;
 @       IN      NS      ns.
-241       IN      PTR     ns.gsb.lan.
-
-
+244       IN      PTR     ns.gsb.lan.
+243       IN      PTR     www.gestionfrais3
