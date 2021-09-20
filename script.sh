@@ -11,11 +11,16 @@ GRANT ALL PRIVILEGES ON gsb_frais.* TO 'gsb'@'localhost';
 flush privileges;
 exit;
 
+
+
 mysql -u root -p gsb_frais < /home/ewen/gsb_frais_structure.sql
 mysql -u root -p gsb_frais < /home/ewen/gsb_frais_insert_tables_statiques.sql
 
-cp /home/ewen/gsb /var/www
-cp /home/ewen/gsb_frais.conf /etc/apache2/sites-available/
+wget https://github.com/kika190/scriptgsb/raw/main/gsb.tar.gz
+tar -xzvf gsb.tar.gz
+
+cp /root/gsb /var/www
+cp /root/gsb_frais.conf /etc/apache2/sites-available/
 
 
 a2ensite gsb_frais.conf
