@@ -1,5 +1,5 @@
 apt update -y && apt upgrade -y
-apt install apache2 mysql-server libapache2-mod-php php-mysql -y
+apt install apache2 mariadb-server libapache2-mod-php php-mysql -y
 wget https://raw.githubusercontent.com/kika190/scriptgsb/main/gsb_frais_insert_tables_statiques.sql
 wget https://raw.githubusercontent.com/kika190/scriptgsb/main/gsb_frais_structure.sql
 wget https://raw.githubusercontent.com/kika190/scriptgsb/main/gsb_frais.conf
