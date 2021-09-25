@@ -1,3 +1,4 @@
+#!/bin/bash
 apt update -y && apt upgrade -y
 
 apt install apache2 mariadb-server libapache2-mod-php php-mysql -y
@@ -21,7 +22,11 @@ mysql -e "flush privileges;"
 
 mysql -u root gsb_frais < /root/gsb_frais_structure.sql
 mysql -u root gsb_frais < /root/gsb_frais_insert_tables_statiques.sql
-
+read -sp 'Mot de passe root pour la base de donnée: ' mdp
+mysql -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('$mdp');"
+mysql -e "DELETE FROM mysql.user WHERE User='';"
+mysql -e "DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');"
+mysql -e "FLUSH PRIVILEGES"
 
 cp -r /root/gsb /var/www
 cp /root/gsb_frais.conf /etc/apache2/sites-available/
