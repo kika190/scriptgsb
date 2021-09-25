@@ -37,4 +37,3 @@ a2dissite 000-default
 rm -rf *
 
 systemctl restart apache2
-                                                             .
