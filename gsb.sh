@@ -14,7 +14,8 @@ tar -xzvf gsb.tar.gz
 
 
 mysql -e "CREATE DATABASE gsb_frais;"
-mysql -e "CREATE USER 'gsb'@'localhost' IDENTIFIED BY 'gsbpass';"
+read -sp 'Mot de passe du compte gsb pour la base de donnée: ' mdpgsb
+mysql -e "CREATE USER 'gsb'@'localhost' IDENTIFIED BY '$mdpgsb';"
 mysql -e "GRANT ALL PRIVILEGES ON gsb_frais.* TO 'gsb'@'localhost';"
 mysql -e "flush privileges;"
 
@@ -22,8 +23,8 @@ mysql -e "flush privileges;"
 
 mysql -u root gsb_frais < /root/gsb_frais_structure.sql
 mysql -u root gsb_frais < /root/gsb_frais_insert_tables_statiques.sql
-read -sp 'Mot de passe root pour la base de donnée: ' mdp
-mysql -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('$mdp');"
+read -sp 'Mot de passe root pour la base de donnée: ' mdpbdd
+mysql -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('$mdpbdd');"
 mysql -e "DELETE FROM mysql.user WHERE User='';"
 mysql -e "DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');"
 mysql -e "FLUSH PRIVILEGES"
